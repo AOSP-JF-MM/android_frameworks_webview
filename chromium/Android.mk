@@ -27,6 +27,9 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_CLASS := APPS
 LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_REQUIRED_MODULES := \
+        libwebviewchromium_loader \
+        libwebviewchromium_plat_support
 
 ifeq ($(TARGET_ARCH),arm)
         LOCAL_SRC_FILES := prebuilt/arm/webview.apk
@@ -59,6 +62,7 @@ LOCAL_C_INCLUDES:= \
         $(CHROMIUM_PATH) \
         external/skia/include/core \
         frameworks/base/core/jni/android/graphics \
+        frameworks/base/libs/hwui/ \
         frameworks/native/include/ui \
 
 LOCAL_SHARED_LIBRARIES += \
